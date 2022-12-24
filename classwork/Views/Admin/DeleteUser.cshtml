@@ -1,0 +1,12 @@
+﻿@{
+    @model WebApplication8.Models.user;
+
+    <form asp-action="DeleteUser" asp-controller="Home" method="post">
+      
+        Email:
+        @Html.TextAreaFor(u => u.email);
+    
+   
+        <input type="submit" value="Submit" />
+    </form>
+}

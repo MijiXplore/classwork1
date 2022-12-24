@@ -1,0 +1,46 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+<style>
+table, th, td {
+    border: 1px solid black;
+    padding: .5em;
+}
+
+</style>
+@{
+
+    var count = 1;
+
+
+
+    <p>Users List:</p>
+    
+    @if (ViewBag.usersList.Count != 0)
+    {
+        <table>
+            <tr>
+                <th>S.No</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Role</th>
+            </tr>
+            @foreach (var eachUser in (List<user>)ViewBag.usersList)
+            {
+                <tr>
+                    <td>@count</td>
+                    <td>@eachUser.name</td>
+                    <td>@eachUser.email</td>
+                    <td>@eachUser.role </td>
+                </tr>
+                count+=1;
+            }
+
+        </table>
+        <th></th>
+
+        //@ViewBag.newerrorMessage
+    }
+
+     
+}

@@ -1,0 +1,25 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+
+@{
+
+    @model WebApplication8.Models.login;
+
+    string login = "";
+    string password = "";
+
+    <form asp-action="CheckCredentials" asp-controller="Home" method="post">
+        <div class="border p-3 mt-4 row pb-2 text-primary" style="border-radius:5%">
+           
+            LoginId:
+            @Html.TextAreaFor(l => l.loginId)
+          
+            Password:
+            @Html.TextAreaFor(l => l.password)
+            <input type="submit" class="btn btn-primary mt-3" style="width:100px" value="Login" />
+          
+        </div>
+    </form>
+    <p style="color:red">@ViewBag.errorMessage</p>
+}

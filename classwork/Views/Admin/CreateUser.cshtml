@@ -1,0 +1,23 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    @model WebApplication8.Models.user;
+     
+    <form asp-action="AddUser" asp-controller="Home" method="post">
+        <div class="border p-3 mt-4 row pb-2 text-primary">
+            Name:
+            @Html.TextAreaFor(u => u.name);
+            Email:
+            @Html.TextAreaFor(u => u.email);
+            Password:
+            @Html.TextAreaFor(u => u.password);
+            Role:
+            @Html.DropDownListFor(m => m.role,
+            new SelectList(Enum.GetValues(typeof(user.roles))),
+            "Select Role")
+            <input type="submit" class="btn btn-primary mt-3" style="width:100px" value="Add User" />
+        </div>
+        
+    </form>
+}
