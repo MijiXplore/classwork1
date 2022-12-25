@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 
-namespace WebApplication8.Controllers
+namespace classwork.Controllers
 {
     public class CustomerController : Controller
     {

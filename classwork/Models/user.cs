@@ -1,12 +1,22 @@
-﻿using System.Reflection;
+﻿using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
+using System.Reflection;
 
-namespace WebApplication8.Models
+namespace classwork.Models
 {
     public class user
     {
+        [Required]
         public string? name { get; set; }
+        [Required]
+        [EmailAddress]
         public string? email { get; set; }
+        [Required]
+        [PasswordPropertyText]
         public string? password { get; set; }
+        [Compare("password", ErrorMessage = "Confirm password doesn't match, Type again !")]
+        public string ConfirmPassword { get; set; }
+        public DateTime CreatedDateTime { get; set; } = DateTime.Now;
 
         public string role { get; set; }
 

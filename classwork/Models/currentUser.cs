@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace WebApplication8.Models
+namespace classwork.Models
 {
     public class currentUser
     {

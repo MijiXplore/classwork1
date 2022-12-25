@@ -1,9 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using MySqlConnector;
-using System.Runtime.InteropServices;
-using WebApplication8.Models;
+using classwork.Models;
 
-namespace WebApplication8.Controllers
+namespace classwork.Controllers
 {
     public class AdminController : Controller
     {
@@ -12,9 +10,18 @@ namespace WebApplication8.Controllers
             return View();
         }
         
-        public IActionResult CreateUser()
+        public IActionResult CreateUser(user obj)
         {
-            return View();
+            if (obj.password != obj.password)
+            {
+                ModelState.AddModelError("password", "Password must match with Confirm Password");
+            }
+
+            if (ModelState.IsValid)
+            {
+                return RedirectToAction("ShowUsers", "Admin");
+            }
+            return View("CreateUser");
         }
 
         public  IActionResult ShowUsers(string error ="")
