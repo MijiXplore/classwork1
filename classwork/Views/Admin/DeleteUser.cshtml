@@ -2,11 +2,13 @@
     @model classwork.Models.user;
 
     <form asp-action="DeleteUser" asp-controller="Home" method="post">
-      
-        Email:
-        @Html.TextAreaFor(u => u.email);
-    
-   
-        <input type="submit" value="Submit" />
+        <div class="form-group mt-3">
+             Email:
+             @Html.TextBoxFor(u => u.email, new {@class="form-control", placeholder="Enter your email", type="email"})
+             <span asp-validation-for="email" class="text-danger"></span>
+        </div>
+        <div>
+             <input type="submit" class="btn btn-primary mt-3" style="width:100px" value="Submit" />
+        </div>
     </form>
 }

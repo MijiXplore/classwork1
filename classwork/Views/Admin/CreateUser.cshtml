@@ -6,18 +6,22 @@
      
     <form asp-action="AddUser" asp-controller="Home" method="post">
         <div class="border p-3 mt-4 row pb-2 text-primary">
-            Name:
-            @Html.TextBoxFor(u => u.name, new {@class="form-control", placeholder="Enter your first name", type="text"})
-            <span asp-validation-for="name" class="text-danger"></span>
-            Email:
-            @Html.TextBoxFor(u => u.email, new {@class="form-control", placeholder="Enter your email", type="email"})
-            <span asp-validation-for="email" class="text-danger"></span>
-            <div class="form-group">
+            <div class="form-group mt-3">
+                Name:
+                @Html.TextBoxFor(u => u.name, new {@class="form-control", placeholder="Enter your first name", type="text"})
+                <span asp-validation-for="name" class="text-danger"></span>
+            </div>
+            <div class="form-group mt-3">
+                Email: 
+                @Html.TextBoxFor(u => u.email, new {@class="form-control", placeholder="Enter your email", type="email"})
+                <span asp-validation-for="email" class="text-danger"></span>
+            </div>
+            <div class="form-group mt-3">
                 <label asp-for="password" class="control-label"></label>
                 <input asp-for="password" class="form-control" />
                 <span asp-validation-for="password" class="text-danger"></span>
             </div>
-            <div class="form-group">
+            <div class="form-group mt-3">
                 <label asp-for="ConfirmPassword" class="control-label"></label>
                 <input asp-for="ConfirmPassword" class="form-control" />
                 <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
@@ -28,12 +32,21 @@
             ConfirmPassword:
             @Html.TextBoxFor(u => u.ConfirmPassword, new {@class="form-control", placeholder="Enter your password again", type="password"})
             <span asp-validation-for="ConfirmPassword" class="text-danger"></span>*@
-            Role:
-            @Html.DropDownListFor(m => m.role, new SelectList(Enum.GetValues(typeof(user.roles)), new {@class="form-control"}),
-            "Select Role")
-         
-            <input type="submit" class="btn btn-primary mt-3" style="width:100px" value="Add User" />
+            <div class="form-group mt-3">
+                Role:
+                @Html.DropDownListFor(m => m.role, new SelectList(Enum.GetValues(typeof(user.roles)), new {@class="form-control"}),
+                "Select Role")
+            </div>
+            <div>
+                <input type="submit" class="btn btn-primary mt-3" style="width:100px" value="Add User" />
+            </div>
         </div>
         
     </form>
+
+    @section Scripts{
+        @{
+            <partial name="_ValidationScriptsPartial"/>
+        }
+    }
 }

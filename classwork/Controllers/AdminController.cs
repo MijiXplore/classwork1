@@ -9,22 +9,30 @@ namespace classwork.Controllers
         {
             return View();
         }
-        
+
+        //GET
+        public IActionResult CreateUser()
+        {
+            return View();
+        }
+
+        //POST
+        [HttpPost]
         public IActionResult CreateUser(user obj)
         {
-            if (obj.password != obj.password)
+            /*if (obj.password != obj.password)
             {
                 ModelState.AddModelError("password", "Password must match with Confirm Password");
-            }
+            }*/
 
             if (ModelState.IsValid)
             {
-                return RedirectToAction("ShowUsers", "Admin");
+                return RedirectToAction("AddUser","Home");
             }
-            return View("CreateUser");
+            return View();
         }
 
-        public  IActionResult ShowUsers(string error ="")
+       public  IActionResult ShowUsers(string error ="")
         {
             //Database call to get the list of available users
             ViewBag.usersList = userData.userList;

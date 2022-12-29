@@ -14,7 +14,7 @@ namespace classwork.Models
         [Required]
         [PasswordPropertyText]
         public string? password { get; set; }
-        [Compare("password", ErrorMessage = "Confirm password doesn't match, Type again !")]
+        [Compare("password", ErrorMessage = "Password doesn't match please type again !")]
         public string ConfirmPassword { get; set; }
         public DateTime CreatedDateTime { get; set; } = DateTime.Now;
 

@@ -26,18 +26,9 @@ namespace classwork.Controllers
 
         public IActionResult AddUser(user userDetails)
         {
-            /*if (userDetails.password != userDetails.password)
-            {
-                ModelState.AddModelError("password", "Password must match with Confirm Password");
-            }*/
+            userData.userList.Add(userDetails);
 
-            if (ModelState.IsValid)
-            {
-                userData.userList.Add(userDetails);
-
-                return RedirectToAction("ShowUsers", "Admin");
-            }
-            return RedirectToAction("CreateUser", "Admin");
+            return RedirectToAction("ShowUsers", "Admin");
         }
 
         public IActionResult Login()
